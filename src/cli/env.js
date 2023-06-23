@@ -1,5 +1,11 @@
+const { stdout } = process;
+
 const parseEnv = () => {
-    // Write your code here 
+  for (let elem in process.env) {
+    if (elem.startsWith('RSS_')) {
+      stdout.write(`${elem}=${process.env[elem]}\n`);
+    }
+  }
 };
 
 parseEnv();
