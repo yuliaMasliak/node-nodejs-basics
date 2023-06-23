@@ -1,18 +1,17 @@
 import fs from 'fs';
+import path from 'path';
 
 const create = async () => {
-  const path = './files/fresh.txt';
+  const dir = path.resolve('./files/fresh.txt');
 
-  fs.open(path, (err) => {
+  fs.open(dir, (err) => {
     if (err) {
       const body = 'I am fresh and young';
-      fs.writeFile(path, body, () => {});
+      fs.writeFile(dir, body, () => {});
     } else {
       throw new Error('FS operation failed');
     }
   });
 };
-
-await create();
 
 await create();
